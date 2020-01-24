@@ -1,0 +1,7 @@
+Host prosody-debian-buster-lua51
+    User root
+    HostName 2a02:16a8:dc4:942:7072:6f73:6f64:7901
+
+Host prosody-debian-buster-lua52
+    User root
+    HostName 2a02:16a8:dc4:942:7072:6f73:6f64:7902

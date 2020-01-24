@@ -1,0 +1,16 @@
+[Unit]
+Description=Buildbot Worker
+
+[Install]
+WantedBy=multi-user.target
+
+[Service]
+Type=forking
+User=buildbot
+Group=buildbot
+Environment="HOME={{ buildbot_home }}" "VIRTUAL_ENV={{ buildbot_home }}" "PATH={{ buildbot_home }}/bin:/usr/bin:/bin"
+ExecStart={{ buildbot_home }}/bin/python3 "{{ buildbot_home }}/bin/buildbot-worker" start "{{ inventory_hostname }}"
+PIDFile={{ buildbot_home }}/{{ inventory_hostname }}/twistd.pid
+WorkingDirectory={{ buildbot_home }}
+StandardOutput=journal
+StandardError=journal

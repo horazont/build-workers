@@ -1,0 +1,12 @@
+[all:vars]
+ansible_python_interpreter=/usr/bin/python3
+
+[debian:children]
+prosody-debian-buster
+
+[prosody:children]
+prosody-debian-buster
+
+[prosody-debian-buster]
+prosody-debian-buster-lua51 lua_version=5.1
+prosody-debian-buster-lua52 lua_version=5.2

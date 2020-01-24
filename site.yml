@@ -1,0 +1,8 @@
+---
+- hosts: all
+  roles:
+  - buildbot-worker
+
+- hosts: prosody
+  roles:
+  - lua-worker

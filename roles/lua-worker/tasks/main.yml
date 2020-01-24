@@ -1,0 +1,27 @@
+- name: "Install packages"
+  apt:
+    name:
+    - "lua{{ lua_version }}"
+    - "liblua{{ lua_version }}-dev"
+    - "libidn11"
+    - "libidn11-dev"
+    - "libssl1.1"
+    - "libssl-dev"
+    - "lua-expat"
+    - "lua-filesystem"
+    - "lua-sec"
+    - "lua-socket"
+    - "lua-bit32"
+
+- name: "Install rocks"
+  command:
+  args:
+    argv:
+    - luarocks
+    - install
+    - "{{ item }}"
+  loop: "{{ rocks }}"
+  vars:
+    rocks:
+      - luacheck
+      - busted
